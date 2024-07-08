@@ -17,6 +17,9 @@
 		27AE9E3C2C3C517800E0F1EA /* ActiveModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE9E3B2C3C517800E0F1EA /* ActiveModal.swift */; };
 		27AE9E3E2C3C51F300E0F1EA /* FileFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE9E3D2C3C51F300E0F1EA /* FileFormView.swift */; };
 		27AE9E402C3C524B00E0F1EA /* DirectoryFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE9E3F2C3C524B00E0F1EA /* DirectoryFormView.swift */; };
+		27AE9E422C3C641100E0F1EA /* DirectoryListView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE9E412C3C641100E0F1EA /* DirectoryListView.swift */; };
+		27AE9E442C3C673600E0F1EA /* DirNode.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE9E432C3C673600E0F1EA /* DirNode.swift */; };
+		27AE9E462C3C687A00E0F1EA /* FileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE9E452C3C687A00E0F1EA /* FileView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -50,6 +53,9 @@
 		27AE9E3B2C3C517800E0F1EA /* ActiveModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveModal.swift; sourceTree = "<group>"; };
 		27AE9E3D2C3C51F300E0F1EA /* FileFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileFormView.swift; sourceTree = "<group>"; };
 		27AE9E3F2C3C524B00E0F1EA /* DirectoryFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryFormView.swift; sourceTree = "<group>"; };
+		27AE9E412C3C641100E0F1EA /* DirectoryListView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryListView.swift; sourceTree = "<group>"; };
+		27AE9E432C3C673600E0F1EA /* DirNode.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirNode.swift; sourceTree = "<group>"; };
+		27AE9E452C3C687A00E0F1EA /* FileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -107,6 +113,9 @@
 				27AE9E3B2C3C517800E0F1EA /* ActiveModal.swift */,
 				27AE9E3D2C3C51F300E0F1EA /* FileFormView.swift */,
 				27AE9E3F2C3C524B00E0F1EA /* DirectoryFormView.swift */,
+				27AE9E412C3C641100E0F1EA /* DirectoryListView.swift */,
+				27AE9E432C3C673600E0F1EA /* DirNode.swift */,
+				27AE9E452C3C687A00E0F1EA /* FileView.swift */,
 			);
 			path = DirectoryPlayground;
 			sourceTree = "<group>";
@@ -268,8 +277,11 @@
 			files = (
 				27AE9E402C3C524B00E0F1EA /* DirectoryFormView.swift in Sources */,
 				27AE9E3E2C3C51F300E0F1EA /* FileFormView.swift in Sources */,
+				27AE9E422C3C641100E0F1EA /* DirectoryListView.swift in Sources */,
 				27AE9E142C3C32C700E0F1EA /* ContentView.swift in Sources */,
+				27AE9E462C3C687A00E0F1EA /* FileView.swift in Sources */,
 				27AE9E122C3C32C700E0F1EA /* DirectoryPlaygroundApp.swift in Sources */,
+				27AE9E442C3C673600E0F1EA /* DirNode.swift in Sources */,
 				27AE9E3C2C3C517800E0F1EA /* ActiveModal.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

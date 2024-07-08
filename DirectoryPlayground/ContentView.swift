@@ -15,17 +15,17 @@ struct ContentView: View {
     @State private var activeModal: ActiveModal?
     
     var body: some View {
-        VStack {
+        VStack {        
             ZStack(alignment: .leading) {
                 if !isFocused {
                     Image(systemName: "magnifyingglass")
-                        .foregroundColor(.red)
+                        .foregroundColor(.gray)
                         .padding(.leading, 8)
                 }
                 
                 TextField("search", text: $text)
                     .padding(EdgeInsets(top: 8, leading: isFocused ? 8 : 30, bottom: 8, trailing: 8))
-                    .background(Color.white)
+                    .background(Color.clear)
                     .cornerRadius(8)
                     .overlay(
                         RoundedRectangle(cornerRadius: 8)
@@ -42,6 +42,7 @@ struct ContentView: View {
                     activeModal = .directoryForm
                 })
             }.padding()
+            DirectoryListView()
             
         }
         .padding()
