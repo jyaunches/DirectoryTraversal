@@ -8,15 +8,16 @@
 import SwiftUI
 
 struct DirectoryListView: View {
-    var elements: [DirNode] = [DirNode(type: .directory("main"))]
+    var elements: [DirNode] = [DirNode(type: .directory, path: "~/.")]
     
     var body: some View {
         List {
             ForEach(elements.indices, id: \.self) { index in
-                switch elements[index].type {
-                case .directory(let type):
+                let element = elements[0]
+                switch element.type {
+                case .directory:
                     FileView(text: type)
-                case .file(let type):
+                case .file:
                     DirectoryView(text: type)
                 }
             }
