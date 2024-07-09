@@ -33,23 +33,23 @@ class DirectoryManager {
     
     func createFile(path: String, content: String) -> Bool {
         guard let reducedPath = getPathAndFile(path: path),
-              let insertLoc = findInsertLocation(path: reducedPath.0, name: reducedPath.1, type: .directory) else { return false }
+              let insertLoc = findInsertLocation(path: reducedPath.0, name: reducedPath.1, type: .file) else { return false }
         
-        insertLoc.addChild(FileNode(name: reducedPath.1, content: content))
+        insertLoc.addChild(FileNode(name: reducedPath.1, content: content, parent: insertLoc))
         return true
     }
     
     func createFile(path: String, name: String, content: String) -> Bool {
         guard let insertLoc = findInsertLocation(path: path, name: name, type: .file) else { return false }
         
-        insertLoc.addChild(FileNode(name: name, content: content))
+        insertLoc.addChild(FileNode(name: name, content: content, parent: insertLoc))
         return true
     }
     
     func createDir(path: String, name: String) -> Bool {
         guard let insertLoc = findInsertLocation(path: path, name: name, type: .directory) else { return false }
         
-        insertLoc.addChild(DirNode(type: .directory, name: name))
+        insertLoc.addChild(DirNode(type: .directory, name: name, parent: insertLoc))
         return true
     }
     
@@ -78,7 +78,7 @@ class DirectoryManager {
     func deleteFile(path: String) -> Bool {
         guard let reducedPath = getPathAndFile(path: path),
               let parent = find(path: reducedPath.0),
-              let child = parent.children.first(where: { $0.name == reducedPath.1 }) else { return false }
+              let _ = parent.children.first(where: { $0.name == reducedPath.1 }) else { return false }
 
         parent.children.removeAll(where: { $0.name == reducedPath.1 })
         return true

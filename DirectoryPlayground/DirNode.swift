@@ -15,14 +15,27 @@ enum DirType {
 class DirNode {
     var type: DirType
     var name: String
+    var parent: DirNode?
     
     var children: [DirNode] = []
     
     var id = UUID()
     
-    init(type: DirType, name: String) {
+    var displayPath: String {
+        var result = "/\(name)"
+        var nextEval: DirNode? = parent
+        
+        while let op = nextEval {
+            result = "/\(op.name)" + result
+            nextEval = nextEval?.parent
+        }
+        return result
+    }
+    
+    init(type: DirType, name: String, parent: DirNode?) {
         self.type = type
         self.name = name
+        self.parent = parent
     }
     
     func addChild(_ node: DirNode) {
@@ -33,8 +46,8 @@ class DirNode {
 class FileNode: DirNode {
     var content: String
     
-    init(name: String, content: String) {
+    init(name: String, content: String, parent: DirNode?) {
         self.content = content
-        super.init(type: .file, name: name)        
+        super.init(type: .file, name: name, parent: parent)
     }
 }

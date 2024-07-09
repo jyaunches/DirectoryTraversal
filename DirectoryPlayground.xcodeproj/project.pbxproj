@@ -113,9 +113,9 @@
 				27AE9E472C3C8DDF00E0F1EA /* Views */,
 				27AE9E112C3C32C700E0F1EA /* DirectoryPlaygroundApp.swift */,
 				27AE9E432C3C673600E0F1EA /* DirNode.swift */,
+				27AE9E482C3C8E1900E0F1EA /* DirectoryManager.swift */,
 				27AE9E152C3C32CA00E0F1EA /* Assets.xcassets */,
 				27AE9E172C3C32CA00E0F1EA /* Preview Content */,
-				27AE9E482C3C8E1900E0F1EA /* DirectoryManager.swift */,
 			);
 			path = DirectoryPlayground;
 			sourceTree = "<group>";

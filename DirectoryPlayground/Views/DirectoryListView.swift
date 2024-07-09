@@ -7,17 +7,29 @@
 
 import SwiftUI
 
+enum ListType {
+    case root, search
+}
+
+
 struct DirectoryListView: View {
     var elements: [DirNode]
+    var mode: ListType = .root
     
     var body: some View {
-        Text("hello world")
-        
-        List(elements, id: \.id) { node in
-            if node.type == .directory {
-                DirectoryView(node: node)
-            } else if let fileNode = node as? FileNode {
-                FileView(node: fileNode)
+        switch(mode) {
+        case .search:
+            List(elements, id: \.id) { node in
+                SearchResultView(node: node)
+            }
+            
+        case .root:
+            List(elements, id: \.id) { node in
+                if node.type == .directory {
+                    DirectoryView(node: node)
+                } else if let fileNode = node as? FileNode {
+                    FileView(node: fileNode)
+                }
             }
         }
     }
@@ -25,10 +37,10 @@ struct DirectoryListView: View {
 
 #Preview {
     
-    let root = DirNode(type: .directory, name: "Root")
-    let subDir = DirNode(type: .directory, name: "Sub Directory")
-    let file1 = FileNode(name: "File1.txt", content: "Content of File 1")
-    let file2 = FileNode(name: "File2.txt", content: "Content of File 2")
+    let root = DirNode(type: .directory, name: "Root", parent: nil)
+    let subDir = DirNode(type: .directory, name: "Sub Directory", parent: root)
+    let file1 = FileNode(name: "File1.txt", content: "Content of File 1", parent: root)
+    let file2 = FileNode(name: "File2.txt", content: "Content of File 2", parent: subDir)
 
     root.addChild(subDir)
     root.addChild(file1)

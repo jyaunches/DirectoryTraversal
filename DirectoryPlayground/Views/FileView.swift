@@ -32,3 +32,11 @@ struct DirectoryView: View {
         }
     }
 }
+
+struct SearchResultView: View {
+    var node: DirNode
+
+    var body: some View {
+        Text("📄 \(node.displayPath)")
+    }
+}
