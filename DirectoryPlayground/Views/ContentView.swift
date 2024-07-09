@@ -8,7 +8,19 @@
 import SwiftUI
 
 struct ContentView: View {
-    var directoryManager: DirectoryManager
+    var body: some View {
+        NavigationView {
+            VStack {
+                SearchAndDirectoryListView()
+            }
+            .navigationTitle("Directory Explorer")
+        }
+    }
+}
+
+
+struct SearchAndDirectoryListView: View {
+    @EnvironmentObject var directoryManager: DirectoryManager
     
     @State private var searchText = ""
     @FocusState private var isFocused: Bool
@@ -17,7 +29,7 @@ struct ContentView: View {
     @State private var searchMode: ListType = .root
     
     var body: some View {
-        VStack {        
+        VStack {
             ZStack(alignment: .leading) {
                 if !isFocused {
                     Image(systemName: "magnifyingglass")
@@ -47,7 +59,7 @@ struct ContentView: View {
                     activeModal = .directoryForm
                 })
             }.padding()
-            DirectoryListView(elements: filteredNodes(), mode: searchMode)
+            DirectoryListView(root: directoryManager.root)
             
         }
         .padding()
@@ -62,7 +74,7 @@ struct ContentView: View {
     }
     
     private func filteredNodes() -> [DirNode] {
-        guard !searchText.isEmpty else { return [directoryManager.root] }
+        guard !searchText.isEmpty else { return directoryManager.root.children }
                 
         return directoryManager.getMatches(partialText: searchText)
     }
@@ -75,9 +87,11 @@ struct ContentView: View {
 #Preview {
     
     let root = DirNode(type: .directory, name: "Root", parent: nil)
+   
     let subDir = root.addDirectory(name: "subdirectory")
     let _ = root.addFile(name: "File1.txt", content: "Content of File 1")
     let _ = subDir?.addFile(name: "File2.txt", content: "Content of File 2")
     
-    return ContentView(directoryManager: DirectoryManager(root: root))
+    return ContentView().environmentObject(DirectoryManager(root: root))
 }
+

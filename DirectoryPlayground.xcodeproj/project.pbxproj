@@ -11,9 +11,6 @@
 		27AE9E142C3C32C700E0F1EA /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE9E132C3C32C700E0F1EA /* ContentView.swift */; };
 		27AE9E162C3C32CA00E0F1EA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27AE9E152C3C32CA00E0F1EA /* Assets.xcassets */; };
 		27AE9E192C3C32CA00E0F1EA /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 27AE9E182C3C32CA00E0F1EA /* Preview Assets.xcassets */; };
-		27AE9E232C3C32CA00E0F1EA /* DirectoryPlaygroundTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE9E222C3C32CA00E0F1EA /* DirectoryPlaygroundTests.swift */; };
-		27AE9E2D2C3C32CA00E0F1EA /* DirectoryPlaygroundUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE9E2C2C3C32CA00E0F1EA /* DirectoryPlaygroundUITests.swift */; };
-		27AE9E2F2C3C32CA00E0F1EA /* DirectoryPlaygroundUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE9E2E2C3C32CA00E0F1EA /* DirectoryPlaygroundUITestsLaunchTests.swift */; };
 		27AE9E3C2C3C517800E0F1EA /* ActiveModal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE9E3B2C3C517800E0F1EA /* ActiveModal.swift */; };
 		27AE9E3E2C3C51F300E0F1EA /* FileFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE9E3D2C3C51F300E0F1EA /* FileFormView.swift */; };
 		27AE9E402C3C524B00E0F1EA /* DirectoryFormView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE9E3F2C3C524B00E0F1EA /* DirectoryFormView.swift */; };
@@ -22,17 +19,11 @@
 		27AE9E462C3C687A00E0F1EA /* FileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE9E452C3C687A00E0F1EA /* FileView.swift */; };
 		27AE9E492C3C8E1900E0F1EA /* DirectoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE9E482C3C8E1900E0F1EA /* DirectoryManager.swift */; };
 		27AE9E4B2C3D685A00E0F1EA /* DirectoryManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE9E4A2C3D685A00E0F1EA /* DirectoryManagerTests.swift */; };
+		27DA5CF52C3ECF6D00C94833 /* DirNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA5CF42C3ECF6D00C94833 /* DirNodeTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
 		27AE9E1F2C3C32CA00E0F1EA /* PBXContainerItemProxy */ = {
-			isa = PBXContainerItemProxy;
-			containerPortal = 27AE9E062C3C32C700E0F1EA /* Project object */;
-			proxyType = 1;
-			remoteGlobalIDString = 27AE9E0D2C3C32C700E0F1EA;
-			remoteInfo = DirectoryPlayground;
-		};
-		27AE9E292C3C32CA00E0F1EA /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 27AE9E062C3C32C700E0F1EA /* Project object */;
 			proxyType = 1;
@@ -48,10 +39,6 @@
 		27AE9E152C3C32CA00E0F1EA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		27AE9E182C3C32CA00E0F1EA /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		27AE9E1E2C3C32CA00E0F1EA /* DirectoryPlaygroundTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DirectoryPlaygroundTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		27AE9E222C3C32CA00E0F1EA /* DirectoryPlaygroundTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryPlaygroundTests.swift; sourceTree = "<group>"; };
-		27AE9E282C3C32CA00E0F1EA /* DirectoryPlaygroundUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = DirectoryPlaygroundUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		27AE9E2C2C3C32CA00E0F1EA /* DirectoryPlaygroundUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryPlaygroundUITests.swift; sourceTree = "<group>"; };
-		27AE9E2E2C3C32CA00E0F1EA /* DirectoryPlaygroundUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryPlaygroundUITestsLaunchTests.swift; sourceTree = "<group>"; };
 		27AE9E3B2C3C517800E0F1EA /* ActiveModal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActiveModal.swift; sourceTree = "<group>"; };
 		27AE9E3D2C3C51F300E0F1EA /* FileFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileFormView.swift; sourceTree = "<group>"; };
 		27AE9E3F2C3C524B00E0F1EA /* DirectoryFormView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryFormView.swift; sourceTree = "<group>"; };
@@ -60,6 +47,7 @@
 		27AE9E452C3C687A00E0F1EA /* FileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileView.swift; sourceTree = "<group>"; };
 		27AE9E482C3C8E1900E0F1EA /* DirectoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryManager.swift; sourceTree = "<group>"; };
 		27AE9E4A2C3D685A00E0F1EA /* DirectoryManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryManagerTests.swift; sourceTree = "<group>"; };
+		27DA5CF42C3ECF6D00C94833 /* DirNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirNodeTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -77,13 +65,6 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		27AE9E252C3C32CA00E0F1EA /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
@@ -92,7 +73,6 @@
 			children = (
 				27AE9E102C3C32C700E0F1EA /* DirectoryPlayground */,
 				27AE9E212C3C32CA00E0F1EA /* DirectoryPlaygroundTests */,
-				27AE9E2B2C3C32CA00E0F1EA /* DirectoryPlaygroundUITests */,
 				27AE9E0F2C3C32C700E0F1EA /* Products */,
 			);
 			sourceTree = "<group>";
@@ -102,7 +82,6 @@
 			children = (
 				27AE9E0E2C3C32C700E0F1EA /* DirectoryPlayground.app */,
 				27AE9E1E2C3C32CA00E0F1EA /* DirectoryPlaygroundTests.xctest */,
-				27AE9E282C3C32CA00E0F1EA /* DirectoryPlaygroundUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -110,8 +89,8 @@
 		27AE9E102C3C32C700E0F1EA /* DirectoryPlayground */ = {
 			isa = PBXGroup;
 			children = (
-				27AE9E472C3C8DDF00E0F1EA /* Views */,
 				27AE9E112C3C32C700E0F1EA /* DirectoryPlaygroundApp.swift */,
+				27AE9E472C3C8DDF00E0F1EA /* Views */,
 				27AE9E432C3C673600E0F1EA /* DirNode.swift */,
 				27AE9E482C3C8E1900E0F1EA /* DirectoryManager.swift */,
 				27AE9E152C3C32CA00E0F1EA /* Assets.xcassets */,
@@ -131,19 +110,10 @@
 		27AE9E212C3C32CA00E0F1EA /* DirectoryPlaygroundTests */ = {
 			isa = PBXGroup;
 			children = (
-				27AE9E222C3C32CA00E0F1EA /* DirectoryPlaygroundTests.swift */,
 				27AE9E4A2C3D685A00E0F1EA /* DirectoryManagerTests.swift */,
+				27DA5CF42C3ECF6D00C94833 /* DirNodeTests.swift */,
 			);
 			path = DirectoryPlaygroundTests;
-			sourceTree = "<group>";
-		};
-		27AE9E2B2C3C32CA00E0F1EA /* DirectoryPlaygroundUITests */ = {
-			isa = PBXGroup;
-			children = (
-				27AE9E2C2C3C32CA00E0F1EA /* DirectoryPlaygroundUITests.swift */,
-				27AE9E2E2C3C32CA00E0F1EA /* DirectoryPlaygroundUITestsLaunchTests.swift */,
-			);
-			path = DirectoryPlaygroundUITests;
 			sourceTree = "<group>";
 		};
 		27AE9E472C3C8DDF00E0F1EA /* Views */ = {
@@ -197,24 +167,6 @@
 			productReference = 27AE9E1E2C3C32CA00E0F1EA /* DirectoryPlaygroundTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		27AE9E272C3C32CA00E0F1EA /* DirectoryPlaygroundUITests */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 27AE9E382C3C32CA00E0F1EA /* Build configuration list for PBXNativeTarget "DirectoryPlaygroundUITests" */;
-			buildPhases = (
-				27AE9E242C3C32CA00E0F1EA /* Sources */,
-				27AE9E252C3C32CA00E0F1EA /* Frameworks */,
-				27AE9E262C3C32CA00E0F1EA /* Resources */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-				27AE9E2A2C3C32CA00E0F1EA /* PBXTargetDependency */,
-			);
-			name = DirectoryPlaygroundUITests;
-			productName = DirectoryPlaygroundUITests;
-			productReference = 27AE9E282C3C32CA00E0F1EA /* DirectoryPlaygroundUITests.xctest */;
-			productType = "com.apple.product-type.bundle.ui-testing";
-		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
@@ -229,10 +181,6 @@
 						CreatedOnToolsVersion = 15.4;
 					};
 					27AE9E1D2C3C32CA00E0F1EA = {
-						CreatedOnToolsVersion = 15.4;
-						TestTargetID = 27AE9E0D2C3C32C700E0F1EA;
-					};
-					27AE9E272C3C32CA00E0F1EA = {
 						CreatedOnToolsVersion = 15.4;
 						TestTargetID = 27AE9E0D2C3C32C700E0F1EA;
 					};
@@ -253,7 +201,6 @@
 			targets = (
 				27AE9E0D2C3C32C700E0F1EA /* DirectoryPlayground */,
 				27AE9E1D2C3C32CA00E0F1EA /* DirectoryPlaygroundTests */,
-				27AE9E272C3C32CA00E0F1EA /* DirectoryPlaygroundUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -269,13 +216,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 		27AE9E1C2C3C32CA00E0F1EA /* Resources */ = {
-			isa = PBXResourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		27AE9E262C3C32CA00E0F1EA /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -305,17 +245,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				27AE9E232C3C32CA00E0F1EA /* DirectoryPlaygroundTests.swift in Sources */,
 				27AE9E4B2C3D685A00E0F1EA /* DirectoryManagerTests.swift in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-		27AE9E242C3C32CA00E0F1EA /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				27AE9E2D2C3C32CA00E0F1EA /* DirectoryPlaygroundUITests.swift in Sources */,
-				27AE9E2F2C3C32CA00E0F1EA /* DirectoryPlaygroundUITestsLaunchTests.swift in Sources */,
+				27DA5CF52C3ECF6D00C94833 /* DirNodeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -326,11 +257,6 @@
 			isa = PBXTargetDependency;
 			target = 27AE9E0D2C3C32C700E0F1EA /* DirectoryPlayground */;
 			targetProxy = 27AE9E1F2C3C32CA00E0F1EA /* PBXContainerItemProxy */;
-		};
-		27AE9E2A2C3C32CA00E0F1EA /* PBXTargetDependency */ = {
-			isa = PBXTargetDependency;
-			target = 27AE9E0D2C3C32C700E0F1EA /* DirectoryPlayground */;
-			targetProxy = 27AE9E292C3C32CA00E0F1EA /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
@@ -552,42 +478,6 @@
 			};
 			name = Release;
 		};
-		27AE9E392C3C32CA00E0F1EA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = T34EE4GLT2;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = jyaunches.DirectoryPlaygroundUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = DirectoryPlayground;
-			};
-			name = Debug;
-		};
-		27AE9E3A2C3C32CA00E0F1EA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
-				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
-				DEVELOPMENT_TEAM = T34EE4GLT2;
-				GENERATE_INFOPLIST_FILE = YES;
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = jyaunches.DirectoryPlaygroundUITests;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SWIFT_EMIT_LOC_STRINGS = NO;
-				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
-				TEST_TARGET_NAME = DirectoryPlayground;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -614,15 +504,6 @@
 			buildConfigurations = (
 				27AE9E362C3C32CA00E0F1EA /* Debug */,
 				27AE9E372C3C32CA00E0F1EA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		27AE9E382C3C32CA00E0F1EA /* Build configuration list for PBXNativeTarget "DirectoryPlaygroundUITests" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				27AE9E392C3C32CA00E0F1EA /* Debug */,
-				27AE9E3A2C3C32CA00E0F1EA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct FileFormView: View {
+    @EnvironmentObject var directoryManager: DirectoryManager
     @Binding var activeModal: ActiveModal?
     @State private var filename: String = ""
     @State private var content: String = ""

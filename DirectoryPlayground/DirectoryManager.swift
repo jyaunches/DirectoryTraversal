@@ -7,16 +7,17 @@
 
 import Foundation
 
-class DirectoryManager {
-    var root: DirNode
+class DirectoryManager: ObservableObject {
+    @Published var root: DirNode = DirNode(type: .directory, name: "/", parent: nil)
     
-    init(root: DirNode) {
-        self.root = root
+    init(root: DirNode? = nil) {
+        if let root = root {
+            self.root = root
+        }
     }
     
     func find(path: String) -> DirNode? {
-        let components = path.components(separatedBy: "/")
-        guard components.count > 0 else { return nil }
+        let components = path == "" ? [] : path.components(separatedBy: "/")        
             
         var curNode = root
         for component in components {

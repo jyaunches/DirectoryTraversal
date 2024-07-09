@@ -16,7 +16,7 @@ struct FileView: View {
 }
 
 struct DirectoryView: View {
-    var node: DirNode
+    @ObservedObject var node: DirNode
     
     var body: some View {
         DisclosureGroup(isExpanded: .constant(true)) {

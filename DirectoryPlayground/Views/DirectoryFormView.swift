@@ -8,6 +8,7 @@
 import SwiftUI
 
 struct DirectoryFormView: View {
+    @EnvironmentObject var directoryManager: DirectoryManager
     @Binding var activeModal: ActiveModal?
     @State private var directoryName: String = ""
     
@@ -18,6 +19,7 @@ struct DirectoryFormView: View {
                     TextField("directory", text: $directoryName)
                 }
                 Button(action: {
+                    _ = directoryManager.createDir(path: "", name: directoryName)
                     activeModal = nil
                 }) {
                     Text("Submit")

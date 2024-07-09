@@ -1,14 +1,13 @@
 //
-//  DirectoryPlaygroundTests.swift
+//  DirNodeTests.swift
 //  DirectoryPlaygroundTests
 //
-//  Created by Julietta Yaunches on 7/8/24.
+//  Created by Julietta Yaunches on 7/10/24.
 //
 
 import XCTest
-@testable import DirectoryPlayground
 
-final class DirectoryPlaygroundTests: XCTestCase {
+final class DirNodeTests: XCTestCase {
 
     override func setUpWithError() throws {
         // Put setup code here. This method is called before the invocation of each test method in the class.

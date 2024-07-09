@@ -73,6 +73,13 @@ final class DirectoryManagerTests: XCTestCase {
         XCTAssertNotNil(directorManager.find(path: "projects/swift"))
     }
     
+    func testCreateDirAtRootWhenNoPathProvided() throws {
+        let directorManager = DirectoryManager(root: self.root!)
+        XCTAssertTrue(directorManager.createDir(path: "", name: "swift"))
+        
+        XCTAssertNotNil(directorManager.find(path: "swift"))
+    }
+    
     func testCreateDirReturnsFalseIfExistingDirAtSameLocation() throws {
         let directorManager = DirectoryManager(root: self.root!)
         XCTAssertTrue(directorManager.createDir(path: "projects", name: "swift"))

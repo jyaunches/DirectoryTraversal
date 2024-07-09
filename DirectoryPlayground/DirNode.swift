@@ -12,13 +12,12 @@ enum DirType {
     case directory
 }
 
-class DirNode {
+class DirNode: ObservableObject, Identifiable {
+    let id = UUID()
     var type: DirType
     var name: String
     private var parent: DirNode?    
-    public private(set) var children: [DirNode] = []
-    
-    var id = UUID()
+    @Published public private(set) var children: [DirNode] = []    
     
     var displayPath: String {
         var result = "/\(name)"
