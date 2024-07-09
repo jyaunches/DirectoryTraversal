@@ -8,6 +8,8 @@
 import SwiftUI
 
 struct ContentView: View {
+    var nodes: [DirNode]
+    
     @State private var searchText = ""
     @State private var text: String = ""
     @FocusState private var isFocused: Bool
@@ -42,7 +44,7 @@ struct ContentView: View {
                     activeModal = .directoryForm
                 })
             }.padding()
-            DirectoryListView()
+            DirectoryListView(elements: nodes)
             
         }
         .padding()
@@ -58,5 +60,15 @@ struct ContentView: View {
 }
 
 #Preview {
-    ContentView()
+    
+    let root = DirNode(type: .directory, name: "Root")
+    let subDir = DirNode(type: .directory, name: "Sub Directory")
+    let file1 = FileNode(name: "File1.txt", content: "Content of File 1")
+    let file2 = FileNode(name: "File2.txt", content: "Content of File 2")
+
+    root.addChild(subDir)
+    root.addChild(file1)
+    subDir.addChild(file2)
+    
+    return ContentView(nodes: [root])
 }

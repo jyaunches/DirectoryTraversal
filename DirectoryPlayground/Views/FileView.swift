@@ -8,15 +8,27 @@
 import SwiftUI
 
 struct FileView: View {
-    let text: String
+    var node: FileNode
+
     var body: some View {
-        Text(text)
+        Text("📄 \(node.name)")
     }
 }
 
 struct DirectoryView: View {
-    let text: String
+    var node: DirNode
+    
     var body: some View {
-        Text(text)            
+        DisclosureGroup(isExpanded: .constant(true)) {
+            ForEach(node.children, id: \.id) { child in
+                if child.type == .directory {
+                    DirectoryView(node: child)
+                } else if let fileNode = child as? FileNode {
+                    FileView(node: fileNode)
+                }
+            }
+        } label: {
+            Text("📁 \(node.name)")
+        }
     }
 }
