@@ -12,21 +12,29 @@ enum DirType {
     case directory
 }
 
-class DirNode: Equatable {
+class DirNode {
     var type: DirType
-    var path: String
+    var name: String
+    
     var children: [DirNode] = []
     
-    init(type: DirType, path: String) {
+    var id = UUID()
+    
+    init(type: DirType, name: String) {
         self.type = type
-        self.path = path
+        self.name = name
     }
     
     func addChild(_ node: DirNode) {
         self.children.append(node)
     }
+}
+
+class FileNode: DirNode {
+    var content: String
     
-    static func == (lhs: DirNode, rhs: DirNode) -> Bool {
-        return lhs.path == rhs.path && lhs.type == rhs.type
+    init(name: String, content: String) {
+        self.content = content
+        super.init(type: .file, name: name)        
     }
 }
