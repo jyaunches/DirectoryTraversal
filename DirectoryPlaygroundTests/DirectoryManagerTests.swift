@@ -18,11 +18,9 @@ final class DirectoryManagerTests: XCTestCase {
     //  poc.py
     override func setUpWithError() throws {
         root = DirNode(type: .directory, name: "~./", parent: nil)
-        let projectsDir = DirNode(type: .directory, name: "projects", parent: root)
-        self.pocFileNode = FileNode(name: "poc.py", content: "#foo", parent: projectsDir)
-        root?.addChild(projectsDir)
-        root?.addChild(DirNode(type: .file, name: "main.py", parent: root))
-        projectsDir.addChild(self.pocFileNode!)
+        let projectsDir = root?.addDirectory(name: "projects")
+        self.pocFileNode = projectsDir?.addFile(name: "poc.py", content: "#foo")
+        _ = root?.addFile(name: "main.py", content: "#bar")
     }
 
     func testFindsNodeGivenAPath() throws {
@@ -114,13 +112,9 @@ final class DirectoryManagerTests: XCTestCase {
     
     func testFoo() throws {
         let root = DirNode(type: .directory, name: "Root", parent: nil)
-        let subDir = DirNode(type: .directory, name: "Subdirectory", parent: root)
-        let file1 = FileNode(name: "File1.txt", content: "Content of File 1", parent: root)
-        let file2 = FileNode(name: "File2.txt", content: "Content of File 2", parent: subDir)
-
-        root.addChild(subDir)
-        root.addChild(file1)
-        subDir.addChild(file2)
+        let subDir = root.addDirectory(name: "Subdirectory")
+        _ = root.addFile(name: "File1.txt", content: "Content of File 1")
+        _ = subDir?.addFile(name: "File2.txt", content: "Content of File 2")
         
         let dirManager = DirectoryManager(root: root)
             
@@ -134,13 +128,5 @@ final class DirectoryManagerTests: XCTestCase {
         let file2 = FileNode(name: "File2.txt", content: "Content of File 2", parent: subDir)
         
         XCTAssertEqual(file2.displayPath, "/Root/Subdirectory/File2.txt")
-    }
-    
-    func testPerformanceExample() throws {
-        // This is an example of a performance test case.
-        self.measure {
-            // Put the code you want to measure the time of here.
-        }
-    }
-
+    }    
 }

@@ -64,36 +64,20 @@ struct ContentView: View {
     private func filteredNodes() -> [DirNode] {
         guard !searchText.isEmpty else { return [directoryManager.root] }
                 
-        let filtered = getMatches(in: [directoryManager.root])
-        return filtered
+        return directoryManager.getMatches(partialText: searchText)
     }
     
     private func updateSearchMode() {
-          searchMode = searchText.isEmpty ? .root : .search
-      }
-
-    private func getMatches(in searchNodes: [DirNode]) -> [DirNode] {
-        var matchs: [DirNode] = []
-        for node in searchNodes {
-            if node.name.localizedCaseInsensitiveContains(searchText) {
-                matchs.append(node)
-            }
-            matchs.append(contentsOf: getMatches(in: node.children))
-        }
-        return matchs
+        searchMode = searchText.isEmpty ? .root : .search
     }
 }
 
 #Preview {
     
     let root = DirNode(type: .directory, name: "Root", parent: nil)
-    let subDir = DirNode(type: .directory, name: "Sub Directory", parent: root)
-    let file1 = FileNode(name: "File1.txt", content: "Content of File 1", parent: root)
-    let file2 = FileNode(name: "File2.txt", content: "Content of File 2", parent: subDir)
-
-    root.addChild(subDir)
-    root.addChild(file1)
-    subDir.addChild(file2)
+    let subDir = root.addDirectory(name: "subdirectory")
+    let _ = root.addFile(name: "File1.txt", content: "Content of File 1")
+    let _ = subDir?.addFile(name: "File2.txt", content: "Content of File 2")
     
     return ContentView(directoryManager: DirectoryManager(root: root))
 }

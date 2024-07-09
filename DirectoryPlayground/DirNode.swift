@@ -15,9 +15,8 @@ enum DirType {
 class DirNode {
     var type: DirType
     var name: String
-    var parent: DirNode?
-    
-    var children: [DirNode] = []
+    private var parent: DirNode?    
+    public private(set) var children: [DirNode] = []
     
     var id = UUID()
     
@@ -38,8 +37,42 @@ class DirNode {
         self.parent = parent
     }
     
-    func addChild(_ node: DirNode) {
-        self.children.append(node)
+    func addFile(name: String, content: String) -> FileNode? {
+        guard name != "" else { return nil }
+        
+        if let _ = childWith(name: name, type: .file) {
+            return nil
+        }
+        
+        let file = FileNode(name: name, content: content, parent: self)
+        self.children.append(file)
+        return file
+    }
+    
+    func addDirectory(name: String) -> DirNode? {
+        guard name != "" else { return nil }
+        
+        if let _ = childWith(name: name, type: .directory) {
+            return nil
+        }
+        
+        let dir = DirNode(type: .directory, name: name, parent: self)
+        self.children.append(dir)
+        return dir
+    }
+    
+    func childWith(name: String, type: DirType) -> DirNode? {
+        return children.first(where: { $0.name == name && $0.type == type })
+    }
+    
+    func childWith(name: String) -> DirNode? {
+        return children.first(where: { $0.name == name })
+    }
+    
+    func deleteChild(name: String) -> Bool {
+        guard let index = children.firstIndex(where: { $0.name == name }) else { return false }
+        children.remove(at: index)
+        return true
     }
 }
 
