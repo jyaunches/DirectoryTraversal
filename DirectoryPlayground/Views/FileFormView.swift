@@ -27,7 +27,8 @@ struct FileFormView: View {
                         .cornerRadius(5)
                 }
                 
-                Button(action: {                    
+                Button(action: { 
+                    _ = directoryManager.createFile(path: "", name: filename, content: content)
                     activeModal = nil
                 }) {
                     Text("Submit")
