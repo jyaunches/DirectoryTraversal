@@ -18,7 +18,6 @@ struct ContentView: View {
     }
 }
 
-
 struct SearchAndDirectoryListView: View {
     @EnvironmentObject var directoryManager: DirectoryManager
     
@@ -26,7 +25,7 @@ struct SearchAndDirectoryListView: View {
     @FocusState private var isFocused: Bool
     
     @State private var activeModal: ActiveModal?
-    @State private var searchMode: ListType = .root
+    @State private var searchResults: [DirNode] = []
     
     var body: some View {
         VStack {
@@ -47,20 +46,15 @@ struct SearchAndDirectoryListView: View {
                     )
                     .focused($isFocused)
                     .onChange(of: searchText) { newValue in
-                        updateSearchMode()
+                        searchResults = filteredNodes()
                     }
             }
             .padding()
             HStack {
-                Button("Create File", action: {
-                    activeModal = .fileForm
-                })
-                Button("Create Directory", action: {
-                    activeModal = .directoryForm
-                })
+                Button("Create File", action: { activeModal = .fileForm })
+                Button("Create Directory", action: { activeModal = .directoryForm })
             }.padding()
-            DirectoryListView(root: directoryManager.root)
-            
+            DirectoryListView(root: directoryManager.root, searchResults: $searchResults)            
         }
         .padding()
         .sheet(item: $activeModal) { item in
@@ -74,14 +68,10 @@ struct SearchAndDirectoryListView: View {
     }
     
     private func filteredNodes() -> [DirNode] {
-        guard !searchText.isEmpty else { return directoryManager.root.children }
+        guard !searchText.isEmpty else { return [] }
                 
         return directoryManager.getMatches(partialText: searchText)
-    }
-    
-    private func updateSearchMode() {
-        searchMode = searchText.isEmpty ? .root : .search
-    }
+    }        
 }
 
 #Preview {
@@ -94,4 +84,3 @@ struct SearchAndDirectoryListView: View {
     
     return ContentView().environmentObject(DirectoryManager(root: root))
 }
-
