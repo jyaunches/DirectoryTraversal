@@ -20,8 +20,8 @@ struct DirectoryPlaygroundApp: App {
     
     
 }
-func mockData() -> DirNode {
-    let root = DirNode(type: .directory, name: "Root", parent: nil)
+func mockData() -> DirectoryNode {
+    let root = DirectoryNode(name: "~", parent: nil)
     let subDir = root.addDirectory(name: "subdirectory")
     let _ = root.addFile(name: "File1.txt", content: "Content of File 1")
     let _ = subDir?.addFile(name: "File2.txt", content: "Content of File 2")

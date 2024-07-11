@@ -7,8 +7,8 @@
 import SwiftUI
 
 struct DirectoryListView: View {    
-    @ObservedObject var root: DirNode
-    @Binding var searchResults: [DirNode]
+    @ObservedObject var root: DirectoryNode
+    @Binding var searchResults: [any Node]
     
     var body: some View {
         if searchResults.count > 0 {
@@ -17,7 +17,7 @@ struct DirectoryListView: View {
             }
         } else {
             List(root.children, id: \.id) { node in
-                if node.type == .directory {
+                if let node = node as? DirectoryNode {
                     DirectoryView(node: node)
                 } else if let fileNode = node as? FileNode {
                     FileView(node: fileNode)
@@ -30,7 +30,7 @@ struct DirectoryListView: View {
 
 #Preview {
     
-    let root = DirNode(type: .directory, name: "Root", parent: nil)
+    let root = DirectoryNode(name: "Root", parent: nil)
     let subDir = root.addDirectory(name: "subdirectory")
     let _ = root.addFile(name: "File1.txt", content: "Content of File 1")
     let _ = subDir?.addFile(name: "File2.txt", content: "Content of File 2")

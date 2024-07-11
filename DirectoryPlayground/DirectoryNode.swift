@@ -7,21 +7,16 @@
 
 import Foundation
 
-enum DirType {
-    case file
-    case directory
+protocol Node: Identifiable {
+    var id: UUID { get }
+    var name: String { get }
+    var parent: DirectoryNode? { get }
 }
 
-class DirNode: ObservableObject, Identifiable {
-    let id = UUID()
-    var type: DirType
-    var name: String
-    private var parent: DirNode?    
-    @Published public private(set) var children: [DirNode] = []    
-    
+extension Node {
     var displayPath: String {
         var result = "/\(name)"
-        var nextEval: DirNode? = parent
+        var nextEval: DirectoryNode? = parent
         
         while let op = nextEval {
             result = "/\(op.name)" + result
@@ -29,9 +24,15 @@ class DirNode: ObservableObject, Identifiable {
         }
         return result
     }
+}
+
+class DirectoryNode: Node, ObservableObject {
+    let id = UUID()
+    var name: String
+    internal var parent: DirectoryNode?    
+    @Published public private(set) var children: [any Node] = []
     
-    init(type: DirType, name: String, parent: DirNode?) {
-        self.type = type
+    init(name: String, parent: DirectoryNode?) {
         self.name = name
         self.parent = parent
     }
@@ -39,7 +40,7 @@ class DirNode: ObservableObject, Identifiable {
     func addFile(name: String, content: String) -> FileNode? {
         guard name != "" else { return nil }
         
-        if let _ = childWith(name: name, type: .file) {
+        if let _ = childWith(name: name, type: FileNode.self) {
             return nil
         }
         
@@ -48,23 +49,23 @@ class DirNode: ObservableObject, Identifiable {
         return file
     }
     
-    func addDirectory(name: String) -> DirNode? {
+    func addDirectory(name: String) -> DirectoryNode? {
         guard name != "" else { return nil }
         
-        if let _ = childWith(name: name, type: .directory) {
+        if let _ = childWith(name: name, type: DirectoryNode.self) {
             return nil
         }
         
-        let dir = DirNode(type: .directory, name: name, parent: self)
+        let dir = DirectoryNode(name: name, parent: self)
         self.children.append(dir)
         return dir
     }
     
-    func childWith(name: String, type: DirType) -> DirNode? {
-        return children.first(where: { $0.name == name && $0.type == type })
+    func childWith<T: Node>(name: String, type: T.Type) -> T? {
+        return children.first(where: { $0.name == name && ($0 as? T) != nil }) as? T
     }
     
-    func childWith(name: String) -> DirNode? {
+    func childWith(name: String) -> (any Node)? {
         return children.first(where: { $0.name == name })
     }
     
@@ -75,11 +76,15 @@ class DirNode: ObservableObject, Identifiable {
     }
 }
 
-class FileNode: DirNode {
+class FileNode: Node {
+    let id = UUID()
+    var name: String
+    internal var parent: DirectoryNode?
     var content: String
     
-    init(name: String, content: String, parent: DirNode?) {
+    init(name: String, content: String, parent: DirectoryNode?) {
         self.content = content
-        super.init(type: .file, name: name, parent: parent)
+        self.name = name
+        self.parent = parent        
     }
 }

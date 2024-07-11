@@ -10,14 +10,14 @@ import XCTest
 
 final class DirectoryManagerTests: XCTestCase {
 
-    var root: DirNode?
-    var pocFileNode: DirNode?
+    var root: DirectoryNode?
+    var pocFileNode: FileNode?
     
     //              ~./
     //  projects/       main.py
     //  poc.py
     override func setUpWithError() throws {
-        root = DirNode(type: .directory, name: "~./", parent: nil)
+        root = DirectoryNode(name: "~./", parent: nil)
         let projectsDir = root?.addDirectory(name: "projects")
         self.pocFileNode = projectsDir?.addFile(name: "poc.py", content: "#foo")
         _ = root?.addFile(name: "main.py", content: "#bar")
@@ -32,7 +32,7 @@ final class DirectoryManagerTests: XCTestCase {
         }
     }
     
-    func testCreatesFile() throws {
+    func testCreatesFileInDirectorySpecifiedByPath() throws {
         let directorManager = DirectoryManager(root: self.root!)
         XCTAssertTrue(directorManager.createFile(path: "projects", name: "new_file.py", content: "# some comment"))
         
@@ -118,7 +118,7 @@ final class DirectoryManagerTests: XCTestCase {
     }
     
     func testFoo() throws {
-        let root = DirNode(type: .directory, name: "Root", parent: nil)
+        let root = DirectoryNode(name: "Root", parent: nil)
         let subDir = root.addDirectory(name: "Subdirectory")
         _ = root.addFile(name: "File1.txt", content: "Content of File 1")
         _ = subDir?.addFile(name: "File2.txt", content: "Content of File 2")
@@ -130,8 +130,8 @@ final class DirectoryManagerTests: XCTestCase {
     }
     
     func testNodeShouldProduceItsFullPathFromTheRoot() throws {
-        let root = DirNode(type: .directory, name: "Root", parent: nil)
-        let subDir = DirNode(type: .directory, name: "Subdirectory", parent: root)
+        let root = DirectoryNode(name: "Root", parent: nil)
+        let subDir = DirectoryNode(name: "Subdirectory", parent: root)
         let file2 = FileNode(name: "File2.txt", content: "Content of File 2", parent: subDir)
         
         XCTAssertEqual(file2.displayPath, "/Root/Subdirectory/File2.txt")

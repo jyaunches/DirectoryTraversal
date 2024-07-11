@@ -16,12 +16,12 @@ struct FileView: View {
 }
 
 struct DirectoryView: View {
-    @ObservedObject var node: DirNode
+    @ObservedObject var node: DirectoryNode
     
     var body: some View {
         DisclosureGroup(isExpanded: .constant(true)) {
             ForEach(node.children, id: \.id) { child in
-                if child.type == .directory {
+                if let child = child as? DirectoryNode {
                     DirectoryView(node: child)
                 } else if let fileNode = child as? FileNode {
                     FileView(node: fileNode)
@@ -34,7 +34,7 @@ struct DirectoryView: View {
 }
 
 struct SearchResultView: View {
-    var node: DirNode
+    var node: any Node
 
     var body: some View {
         Text("📄 \(node.displayPath)")
