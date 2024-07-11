@@ -18,7 +18,7 @@
 		27AE9E462C3C687A00E0F1EA /* FileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE9E452C3C687A00E0F1EA /* FileView.swift */; };
 		27AE9E492C3C8E1900E0F1EA /* DirectoryManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE9E482C3C8E1900E0F1EA /* DirectoryManager.swift */; };
 		27AE9E4B2C3D685A00E0F1EA /* DirectoryManagerTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27AE9E4A2C3D685A00E0F1EA /* DirectoryManagerTests.swift */; };
-		27DA5CF52C3ECF6D00C94833 /* DirNodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA5CF42C3ECF6D00C94833 /* DirNodeTests.swift */; };
+		27DA5CF52C3ECF6D00C94833 /* NodeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 27DA5CF42C3ECF6D00C94833 /* NodeTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -45,7 +45,7 @@
 		27AE9E452C3C687A00E0F1EA /* FileView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileView.swift; sourceTree = "<group>"; };
 		27AE9E482C3C8E1900E0F1EA /* DirectoryManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryManager.swift; sourceTree = "<group>"; };
 		27AE9E4A2C3D685A00E0F1EA /* DirectoryManagerTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirectoryManagerTests.swift; sourceTree = "<group>"; };
-		27DA5CF42C3ECF6D00C94833 /* DirNodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DirNodeTests.swift; sourceTree = "<group>"; };
+		27DA5CF42C3ECF6D00C94833 /* NodeTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NodeTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,7 +109,7 @@
 			isa = PBXGroup;
 			children = (
 				27AE9E4A2C3D685A00E0F1EA /* DirectoryManagerTests.swift */,
-				27DA5CF42C3ECF6D00C94833 /* DirNodeTests.swift */,
+				27DA5CF42C3ECF6D00C94833 /* NodeTests.swift */,
 			);
 			path = DirectoryPlaygroundTests;
 			sourceTree = "<group>";
@@ -242,7 +242,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				27AE9E4B2C3D685A00E0F1EA /* DirectoryManagerTests.swift in Sources */,
-				27DA5CF52C3ECF6D00C94833 /* DirNodeTests.swift in Sources */,
+				27DA5CF52C3ECF6D00C94833 /* NodeTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

@@ -19,8 +19,8 @@ extension Node {
         var nextEval: DirectoryNode? = parent
         
         while let op = nextEval {
-            result = "/\(op.name)" + result
             nextEval = nextEval?.parent
+            result = nextEval == nil ? "\(op.name)" + result : "/\(op.name)" + result
         }
         return result
     }
@@ -61,7 +61,7 @@ class DirectoryNode: Node, ObservableObject {
         return dir
     }
     
-    func childWith<T: Node>(name: String, type: T.Type) -> T? {
+    private func childWith<T: Node>(name: String, type: T.Type) -> T? {
         return children.first(where: { $0.name == name && ($0 as? T) != nil }) as? T
     }
     
